@@ -16,4 +16,16 @@ app.use(express.static("public")) // it is used to serve static files like image
 app.use(cookieParser())
 
 
+
+
+//routes 
+
+import userRouter from './routes/user.routes.js'
+
+//route decclaration 
+app.use("/api/v1/users", userRouter)
+
+//http:localhost:8000/api/v1/users/register
+
+
 export {app}
