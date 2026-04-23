@@ -1,5 +1,5 @@
 // This file is used to create a custom error class that can be used to throw errors in the application. It extends the built-in Error class and adds additional properties like statusCode, data, message, success, errors and stack.
-class apiError extends Error {
+class ApiError extends Error {
     constructor(
         statusCode,
         message = "Something Went wrong",
@@ -21,4 +21,4 @@ class apiError extends Error {
         }
     }
 }
-export{apiError}
+export{ApiError}
