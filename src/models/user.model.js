@@ -56,7 +56,6 @@ const userSchema = new Schema(
 userSchema.pre("save",async function (next) {
   if(!this.isModified("password")) return next()
          this.password = await bcrypt.hash(this.password,10)
-         next()
 })
 
 //.methods is used to add the instance methods to the userSchema. It is used to add the methods that can be called on the instances of the user model. It is used to add the methods that can be called on the user objects that are created from the user model. It is used to add the methods that can be called on the user objects that are returned from the database queries. It is used to add the methods that can be called on the user objects that are returned from the API responses.

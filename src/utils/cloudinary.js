@@ -1,5 +1,7 @@
 import {v2 as cloudinary} from "cloudinary";
 import fs from "fs"
+import dotenv from "dotenv";
+dotenv.config();
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -14,7 +16,9 @@ cloudinary.config({
         //uploading file to cloudinary
         const res = await cloudinary.uploader.upload(localFilePath, {resource_type: "auto"})
         //file has been uploaded to cloudinary, now we can remove the file from local storage
-        console.log("File is uploaded on cloudinary : ", res.url)
+        // console.log("File is uploaded on cloudinary : ", res.url)
+        // console.log("Cloudinary response:", res);
+        fs.unlinkSync(localFilePath)
 
         return res;
     } catch (error) {
